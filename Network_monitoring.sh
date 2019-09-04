@@ -13,7 +13,7 @@ NONET=0
 # email report when 
 SUBJECT="Ping failed"
 SUBJECT2="40% Ping Failed"
-EMAILIDS="sagnik.sarkar@simpsoftsolutions.com"
+EMAILIDS="your@mail.com"
 SUBJECT3="100% Ping Avalable"
 while [ 1 ]
 do
