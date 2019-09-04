@@ -13,7 +13,7 @@ NONET=0
 # email report when 
 SUBJECT="Ping failed"
 SUBJECT2="40% Ping Failed"
-EMAILIDS="sagnik.sarkar@simpsoftsolutions.com joydeep.bakshi@simpsoftsolutions.com joydeep@simpsoftsolutions.com"
+EMAILIDS="sagnik.sarkar@simpsoftsolutions.com"
 SUBJECT3="100% Ping Avalable"
 while [ 1 ]
 do
@@ -28,9 +28,12 @@ do
     fi
   fi
   if [ "$count" -lt "60" ];then
+     if [ "NONET" = "0" ];then
     #40% failed
     echo "Host : All Servers are Critical (40% ping failed) at $(date)" | mail -s "$SUBJECT2" $EMAILIDS
     HASNET=1
+    NONET=1
+     fi
     fi
     if [ "$count" = "100" ];then
       if [ "$HASNET" = "1" ];then
@@ -51,7 +54,3 @@ do
     echo " $HASNET is value for HASNET variable for debug purpused "
     echo " $NONET is value for NONET variable for debug purpused"
 done
-
-
-
-
